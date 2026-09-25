@@ -30,6 +30,7 @@ SRC, DIST = ROOT / "src", ROOT / "dist"
 CSS_LINK = re.compile(r'<link rel="stylesheet" href="(styles\.css)">')
 JS_TAG = re.compile(r'<script src="(app\.js)"></script>')
 IMG_REF = re.compile(r'(?<=src=")(\.\./\.\./assets/[^"]+)(?=")')
+EMBED_ATTR = re.compile(r'data-embed="([a-z0-9-]+)"')
 
 
 def read(path: Path) -> str:
@@ -57,14 +58,27 @@ def main() -> None:
     check = "--check" in sys.argv
     if DIST.exists():
         shutil.rmtree(DIST)
-    for app_dir in sorted(p for p in SRC.iterdir() if (p / "index.html").is_file()):
-        html = build_app(app_dir)
+    built = {p.name: build_app(p) for p in sorted(SRC.iterdir()) if (p / "index.html").is_file()}
+
+    # Embed linked apps (data-embed="<name>") so a page works as one offline file.
+    for name, html in built.items():
+        wanted = [n for n in EMBED_ATTR.findall(html) if n in built and n != name]
+        if wanted:
+            blobs = "".join(
+                f'<script type="application/octet-stream" id="embed-{n}">'
+                f'{base64.b64encode(built[n].encode("utf-8")).decode()}</script>\n'
+                for n in dict.fromkeys(wanted))
+            idx = html.rindex("<script>")
+            built[name] = html[:idx] + blobs + html[idx:]
+            print(f"[build] {name}: embedded {', '.join(dict.fromkeys(wanted))}")
+
+    for name, html in built.items():
         if check and (CSS_LINK.search(html) or JS_TAG.search(html) or IMG_REF.search(html)):
-            sys.exit(f"[build] unresolved local reference in {app_dir.name}")
-        out = DIST / app_dir.name / "index.html"
+            sys.exit(f"[build] unresolved local reference in {name}")
+        out = DIST / name / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(html, encoding="utf-8")
-        print(f"[build] dist/{app_dir.name}/index.html  {len(html) / 1024:,.0f} KB")
+        print(f"[build] dist/{name}/index.html  {len(html) / 1024:,.0f} KB")
 
     arch_out = DIST / "architecture" / "index.html"
     arch_out.parent.mkdir(parents=True, exist_ok=True)

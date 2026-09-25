@@ -222,7 +222,7 @@ label(1196, 716, "validation state", "bl", anchor="start")
 DX, DW = 1360, 260
 rect(DX, 100, DW, 600, "#fbfcfe", OR, rx=16, sw=1.6)
 lane(DX + 20, 128, "05 · Presentation", OR_D)
-text(DX + 20, 145, "hosted on claude.ai as Artifacts", size=10.5, fill=MUTED)
+text(DX + 20, 145, "claude.ai Artifacts + offline build", size=10.5, fill=MUTED)
 box(DX + 20, 160, 220, 80, "Module Hub", ["4-tab dashboard · sidebar nav", "banner heroes · published v4"])
 box(DX + 20, 254, 220, 80, "PR Analytics Dashboard", ["visibility · positioning", "white-space recommendations"])
 box(DX + 20, 348, 220, 80, "Competitor Radar (live)", ["keep / drop validation", "shared activity log"])
@@ -285,7 +285,7 @@ TECH = [
     ("Front end", "HTML5, CSS custom properties, vanilla JS, inline SVG", "Zero-dependency dashboards; base64 imagery for CSP-safe hosting"),
     ("Typography", "Google Fonts — Montserrat, Roboto, Roboto Mono", "Display, body and data faces"),
     ("QA", "Playwright + headless Chromium, section-diff checks", "Screenshot review per tab; regression check against the baseline"),
-    ("Delivery", "claude.ai Artifacts (versioned, private → shareable)", "Module Hub, Competitor Radar, PR Analytics Dashboard"),
+    ("Delivery", "claude.ai Artifacts + offline single-file build", "Live versioned dashboards; one self-contained HTML file that runs on any machine without Claude"),
 ]
 rows = "\n".join(f"<tr><td class='layer'>{esc(a)}</td><td class='tech'>{esc(b)}</td><td>{esc(c)}</td></tr>" for a, b, c in TECH)
 

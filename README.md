@@ -12,12 +12,12 @@ The Fourth Mind turns Embitel's internal knowledge repository and public web sou
 |---|---|---:|---|
 | `src/competitor-radar/app.js` | JavaScript | 349 | Interactive validation app: rendering, keep/remove/add rivals, approval state, activity log, and live sync through the Artifact `db` API with a local fallback |
 | `src/competitor-radar/styles.css` | CSS | 503 | Radar design system (light and dark themes) |
-| `src/module-hub/app.js` | JavaScript | 13 | Sidebar tab navigation |
+| `src/module-hub/app.js` | JavaScript | 30 | Sidebar tab navigation; opens the embedded Competitor Radar and PR Analytics apps offline through Blob URLs |
 | `src/module-hub/styles.css` | CSS | 231 | Hub design tokens, hero banners, snapshot cards, four-pillar radial layout |
 | `src/module-hub/index.html` | HTML + SVG | 542 | Four module screens, inline SVG icons and the car/pillars diagram |
 | `src/pr-analytics-dashboard/styles.css` | CSS | 585 | Dashboard layout: matrices, cards, opportunity panel |
 | `src/pr-analytics-dashboard/index.html` | HTML | 599 | Module 4 strategy dashboard |
-| `tools/build.py` | Python | 56 | Build: inlines CSS, JS and images into single-file pages in `dist/` |
+| `tools/build.py` | Python | 89 | Build: inlines CSS, JS and images, then embeds the linked apps into the Hub so it runs as one offline file |
 | `tools/architecture/build_architecture.py` | Python | 398 | Generates the architecture diagram as hand-computed inline SVG |
 | `tools/qa/section_diff.py` | Python | 46 | Content-regression check between two builds |
 | `tools/qa/screenshot_tabs.js` | JavaScript | 37 | Playwright visual QA |
@@ -54,7 +54,9 @@ the-fourth-mind/
 
 ## Run it
 
-No install is needed to view it. Open `dist/module-hub/index.html` in any modern browser. Each file in `dist/` is a single self-contained page that works offline.
+No install, server, internet connection or Claude account is needed. Open `dist/module-hub/index.html` in any modern browser (Chrome, Edge, Firefox or Safari). That one file contains the whole solution: all four module screens, with the interactive Competitor Radar and the PR Analytics Dashboard embedded inside it. The "Open the full interactive…" links at the bottom of those two tabs open the embedded apps in a new tab, straight from the file. You can copy the Hub file on its own to any machine and it still works. The other files in `dist/` are the same apps as separate standalone pages.
+
+Offline, the pages use system fonts instead of Google Fonts. The Competitor Radar runs in local demo mode: keep, remove and add work, but changes last only for the browser session.
 
 To rebuild from source (Python 3.9+, standard library only):
 
@@ -62,7 +64,7 @@ To rebuild from source (Python 3.9+, standard library only):
 python3 tools/build.py --check
 ```
 
-The build is reproducible. `dist/module-hub/index.html` and `dist/pr-analytics-dashboard/index.html` are byte-for-byte identical to the published dashboards. You can also open the `src/` folders directly in a browser while developing, because they load their CSS, JS and images by relative path.
+The build is reproducible. `dist/pr-analytics-dashboard/index.html` is byte-for-byte identical to the published dashboard. The Hub matches the published v4 except that its two links now open the embedded offline apps instead of claude.ai pages. You can also open the `src/` folders directly in a browser while developing, because they load their CSS, JS and images by relative path.
 
 To run the QA checks:
 
@@ -106,7 +108,7 @@ The full module-by-module spec is in [`agent/WORKFLOW.md`](agent/WORKFLOW.md).
 
 - The research pass used a search fallback rather than full web search. Gaps such as event presence or podcasts may reflect tool coverage, not a competitor's real silence. Module 4 recommends a deeper pass before budget is committed.
 - The research window is September 2025 to September 2026. Competitor data should be refreshed before it is reused.
-- The live dashboards on claude.ai are private to the owner's account. `dist/` is the portable copy.
+- The live dashboards on claude.ai are private to the owner's account. Use `dist/module-hub/index.html` to run the solution on any other machine.
 
 ## Scope
 
