@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: PR Analytics & Competitive Strategy Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="eyebrow">The Fourth Mind · Module 4</div>
+            <h1>PR Analytics & Competitive Strategy Dashboard</h1>
+            <p class="subtitle">Five-competitor SDV landscape analysis. Strategic intelligence for Embitel's PR and media positioning in the software-defined vehicle market.</p>
+            <div class="meta">
+                <span><b>Analysis Date</b> September 15, 2026</span>
+                <span><b>Research Method</b> Competitor website analysis, news monitoring (Bing News fallback), direct article verification</span>
+                <span><b>Scope</b> SDV business only; 12-month research window (Sept 2025–Sept 2026)</span>
+                <span><b>Competitors</b> KPIT Technologies, Tata Elxsi, Sasken Technologies, LTTS, eInfochips</span>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="executive-summary">
+            <div class="summary-title">Executive Summary</div>
+            <div class="summary-text">
+                <strong>The SDV PR landscape is dominated by three competitors</strong> (KPIT, Tata Elxsi, LTTS) with strong partnership-announcement cadences and broad capability positioning. <strong>Media presence is concentrated in wire/business press</strong> (Yahoo Finance, PR Newswire) with selective automotive-trade-press pickup. <strong>CEO/executive thought leadership is weak across the field</strong> except KPIT — only one CEO interview verified across all five competitors in this pass. <strong>Three major white-space opportunities emerge:</strong> (1) Analyst-source recognition is contested only by eInfochips; (2) Dedicated trade-press relationships beyond wire syndication remain underdeveloped; (3) Event/conference presence (CES, IAA, Embedded) is claimed by only Tata Elxsi. Embitel can differentiate by staking claim to these relatively uncontested territories.
+            </div>
+        </div>
+
+        <!-- Section 1: Competitor PR Profiles -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar"></div>
+                <div class="section-title">Competitor PR Profiles</div>
+            </div>
+
+            <div class="competitors-grid">
+                <!-- KPIT -->
+                <div class="competitor-card">
+                    <div class="competitor-name">KPIT Technologies</div>
+                    <div class="confidence-badge confidence-high">High Confidence</div>
+
+                    <div class="card-section">
+                        <div class="card-label">Core Positioning</div>
+                        <div class="card-content">AI-and-software transformation partner for SDV architectures. Emphasis on rearchitecting the automotive tech stack and agentic AI.</div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">Top Narratives</div>
+                        <div class="tag-list">
+                            <div class="tag">OEM Partnerships</div>
+                            <div class="tag">Middleware</div>
+                            <div class="tag">AI/Agentic AI</div>
+                            <div class="tag">Beacon Product</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Strengths</div>
+                        <div class="card-content"><span class="tag strength">✓ CEO Visibility</span> <span class="tag strength">✓ Clear Message</span> <span class="tag strength">✓ Partnership Cadence</span></div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Gaps</div>
+                        <div class="card-content"><span class="tag gap">✗ Trade Press</span> <span class="tag gap">✗ Event Presence</span> <span class="tag gap">✗ Analyst Recognition</span></div>
+                    </div>
+                </div>
+
+                <!-- Tata Elxsi -->
+                <div class="competitor-card">
+                    <div class="competitor-name">Tata Elxsi</div>
+                    <div class="confidence-badge confidence-high">High Confidence</div>
+
+                    <div class="card-section">
+                        <div class="card-label">Core Positioning</div>
+                        <div class="card-content">SDV ecosystem integrator. Consistently ties partnerships to AVENIR SDV branded framework.</div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">Top Narratives</div>
+                        <div class="tag-list">
+                            <div class="tag">AVENIR SDV</div>
+                            <div class="tag">Silicon Partnerships</div>
+                            <div class="tag">OEM Wins</div>
+                            <div class="tag">CES Events</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Strengths</div>
+                        <div class="card-content"><span class="tag strength">✓ Trade Press</span> <span class="tag strength">✓ Event Presence</span> <span class="tag strength">✓ Named Brand</span></div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Gaps</div>
+                        <div class="card-content"><span class="tag gap">✗ CEO Visibility</span> <span class="tag gap">✗ Analyst Recognition</span></div>
+                    </div>
+                </div>
+
+                <!-- Sasken -->
+                <div class="competitor-card">
+                    <div class="competitor-name">Sasken Technologies</div>
+                    <div class="confidence-badge confidence-medium">Medium Confidence</div>
+
+                    <div class="card-section">
+                        <div class="card-label">Core Positioning</div>
+                        <div class="card-content">Automotive cybersecurity specialist. Compliance and audit-focused messaging.</div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">Top Narratives</div>
+                        <div class="tag-list">
+                            <div class="tag">VicOne Partnership</div>
+                            <div class="tag">Trustonic</div>
+                            <div class="tag">Cybersecurity</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Strengths</div>
+                        <div class="card-content"><span class="tag strength">✓ Focused Narrative</span> <span class="tag strength">✓ Trade Press Hit</span></div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Gaps</div>
+                        <div class="card-content"><span class="tag gap">✗ Narrow Coverage</span> <span class="tag gap">✗ CEO Visibility</span> <span class="tag gap">✗ Event Presence</span></div>
+                    </div>
+                </div>
+
+                <!-- LTTS -->
+                <div class="competitor-card">
+                    <div class="competitor-name">L&T Technology Services</div>
+                    <div class="confidence-badge confidence-high">High Confidence</div>
+
+                    <div class="card-section">
+                        <div class="card-label">Core Positioning</div>
+                        <div class="card-content">Multi-domain engineering partner. Broad capability positioning, large-scale corporate narrative.</div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">Top Narratives</div>
+                        <div class="tag-list">
+                            <div class="tag">OEM Deals</div>
+                            <div class="tag">Global Hubs</div>
+                            <div class="tag">Scale/Credibility</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Strengths</div>
+                        <div class="card-content"><span class="tag strength">✓ Named Clients</span> <span class="tag strength">✓ Scale Story</span></div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Gaps</div>
+                        <div class="card-content"><span class="tag gap">✗ SDV Accelerators</span> <span class="tag gap">✗ CEO Visibility</span> <span class="tag gap">✗ Trade Press</span></div>
+                    </div>
+                </div>
+
+                <!-- eInfochips -->
+                <div class="competitor-card">
+                    <div class="competitor-name">eInfochips (Arrow Electronics)</div>
+                    <div class="confidence-badge confidence-medium">Medium Confidence</div>
+
+                    <div class="card-section">
+                        <div class="card-label">Core Positioning</div>
+                        <div class="card-content">Automotive/mobility services provider. Gaining validation through analyst recognition.</div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">Top Narratives</div>
+                        <div class="tag-list">
+                            <div class="tag">ISG Rising Star</div>
+                            <div class="tag">Executive Byline</div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Strengths</div>
+                        <div class="card-content"><span class="tag strength">✓ Analyst Recognition</span> <span class="tag strength">✓ Third-Party Validation</span></div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="card-label">PR Gaps</div>
+                        <div class="card-content"><span class="tag gap">✗ Volume</span> <span class="tag gap">✗ Event Presence</span> <span class="tag gap">✗ Trade Press</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Narrative & Topic Analysis -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar"></div>
+                <div class="section-title">Narrative Landscape</div>
+            </div>
+
+            <div class="narrative-section">
+                <div class="narrative-box owned-many">
+                    <h4>Owned by Most (3–5 competitors)</h4>
+                    <ul class="narrative-list">
+                        <li><strong>Named-partner press releases</strong> — Core PR mechanic for KPIT, Tata Elxsi, Sasken, LTTS</li>
+                        <li><strong>"Software-defined vehicle" branding</strong> — Self-positioning language used explicitly by 4+ of 5</li>
+                        <li><strong>Wire/business press syndication</strong> — Dominant distribution channel for all five competitors</li>
+                    </ul>
+                </div>
+
+                <div class="narrative-box owned-few">
+                    <h4>Owned by Few (1–2 competitors)</h4>
+                    <ul class="narrative-list">
+                        <li><strong>Named branded SDV suites</strong> — Only Tata Elxsi's AVENIR reinforced in earned media</li>
+                        <li><strong>Event/conference presence</strong> — Only Tata Elxsi verified at CES 2025, 2026</li>
+                        <li><strong>Analyst-source recognition</strong> — Only eInfochips (ISG Provider Lens "Rising Star")</li>
+                        <li><strong>CEO thought leadership</strong> — Only KPIT shows consistent CEO-quoted coverage</li>
+                    </ul>
+                </div>
+
+                <div class="narrative-box whitespace">
+                    <h4>Emerging Across Field</h4>
+                    <ul class="narrative-list">
+                        <li><strong>AI/agentic AI</strong> — KPIT (Microsoft partnership); layered onto existing SDV narrative</li>
+                        <li><strong>India-based joint hubs</strong> — Tata Elxsi (JSW, Suzuki), LTTS (thyssenkrupp) — 3 competitors in last 12 months</li>
+                        <li><strong>GCC/India as SDV hub narrative</strong> — Embitel positioning, emerging across ecosystem</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="narrative-section">
+                <div class="narrative-box owned-many">
+                    <h4>Highly Competitive Topics</h4>
+                    <ul class="narrative-list">
+                        <li><strong>SDV architecture</strong> — Contested by 4–5 competitors; hard to differentiate</li>
+                        <li><strong>OEM partnerships</strong> — Universal format; differentiation via deal specificity, not format</li>
+                    </ul>
+                </div>
+
+                <div class="narrative-box whitespace">
+                    <h4>Underrepresented (White Space)</h4>
+                    <ul class="narrative-list">
+                        <li><strong>Digital cockpit / HMI</strong> — Only Tata Elxsi (Autolink MoU) and KPIT (snippet)</li>
+                        <li><strong>ADAS specifically</strong> — No competitor-specific earned coverage despite being a core capability</li>
+                        <li><strong>OTA/FOTA</strong> — Only in general industry pieces, never competitor-specific</li>
+                        <li><strong>Podcasts / YouTube</strong> — Zero verified findings across all five</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Media Visibility Matrix -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar"></div>
+                <div class="section-title">Media Visibility Comparison</div>
+            </div>
+
+            <div class="comparison-matrix">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Media Category</th>
+                            <th style="text-align: center;">KPIT</th>
+                            <th style="text-align: center;">Tata Elxsi</th>
+                            <th style="text-align: center;">Sasken</th>
+                            <th style="text-align: center;">LTTS</th>
+                            <th style="text-align: center;">eInfochips</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">Wire/Business Press</td>
+                            <td class="presence-yes">●●●</td>
+                            <td class="presence-yes">●●●</td>
+                            <td class="presence-yes">●●</td>
+                            <td class="presence-yes">●●</td>
+                            <td class="presence-yes">●●</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Automotive Trade Press</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-yes">Strong</td>
+                            <td class="presence-partial">1 hit</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Engineering/Tech Trade Press</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">CEO/Executive Interviews</td>
+                            <td class="presence-yes">Multiple</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-partial">1 byline</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Analyst Reports</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-yes">ISG Rising Star</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Event Coverage (CES/IAA)</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-yes">Strong</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Case Studies/Technical Content</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-partial">Limited</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Podcasts/Video</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                            <td class="presence-no">None</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 4: Executive Visibility -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar"></div>
+                <div class="section-title">Executive Visibility</div>
+            </div>
+
+            <div class="comparison-matrix">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competitor</th>
+                            <th>Primary Spokesperson(s)</th>
+                            <th>Level</th>
+                            <th>Visibility Pattern</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">KPIT</td>
+                            <td>Kishor Patil (CEO & MD)</td>
+                            <td style="text-align: center;"><span class="vstat vstat-ok">CEO</span></td>
+                            <td>Multiple quoted pieces; consistent voice across deals</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Tata Elxsi</td>
+                            <td>Manjunath Kulkarni (VP, Global Sales)</td>
+                            <td style="text-align: center;"><span class="vstat vstat-partial">BU Leader</span></td>
+                            <td>Different spokespeople per deal; no CEO visibility</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Sasken</td>
+                            <td>Rahul Bagchi (AVP, Cybersecurity)</td>
+                            <td style="text-align: center;"><span class="vstat vstat-partial">Practice Lead</span></td>
+                            <td>One verified quote; no CEO interviews</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">LTTS</td>
+                            <td>Alind Saxena (Exec Director, Mobility)</td>
+                            <td style="text-align: center;"><span class="vstat vstat-partial">BU Leader</span></td>
+                            <td>One verified quote; no CEO visibility</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">eInfochips</td>
+                            <td>Satyabrata Pradhan (role unconfirmed)</td>
+                            <td style="text-align: center;"><span class="vstat vstat-partial">Executive</span></td>
+                            <td>One bylined opinion piece; no CEO interviews</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="font-size: 13px; color: var(--muted); margin-top: 16px;"><strong>Key Finding:</strong> KPIT is the only competitor with consistent, repeated CEO-level visibility in independent media. This is a unique asset and a differentiator for them. All other competitors rely on business-unit or practice-level spokespeople, rotating per announcement.</p>
+        </div>
+
+        <!-- Section 5: Event & Conference Presence -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar"></div>
+                <div class="section-title">Event & Conference Presence</div>
+            </div>
+
+            <div class="comparison-matrix">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th style="text-align: center;">KPIT</th>
+                            <th style="text-align: center;">Tata Elxsi</th>
+                            <th style="text-align: center;">Sasken</th>
+                            <th style="text-align: center;">LTTS</th>
+                            <th style="text-align: center;">eInfochips</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">CES (2025–2026)</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-yes">CES 2025, 2026</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">IAA Mobility</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Embedded World</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                            <td class="presence-no">Not verified</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Industry-Specific Presence</td>
+                            <td class="presence-no">Zero findings</td>
+                            <td class="presence-yes">Strong</td>
+                            <td class="presence-no">Zero findings</td>
+                            <td class="presence-no">Zero findings</td>
+                            <td class="presence-no">Zero findings</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="font-size: 13px; color: var(--muted); margin-top: 16px;"><strong>Key Finding:</strong> Tata Elxsi is the only competitor with verified event presence in this research pass (CES 2025 & 2026). For all others, including major players like KPIT and LTTS, no event coverage was found — a surprising gap that warrants deeper investigation but, if confirmed, represents significant white space.</p>
+        </div>
+
+        <!-- Section 6: White-Space Opportunities -->
+        <div class="opportunity-panel">
+            <h3>Strategic White-Space Opportunities for Embitel</h3>
+            <ul class="opportunity-list">
+                <li><strong>ADAS-specific PR push:</strong> Despite ADAS being a core Embitel strength ("one of India's largest ADAS teams"), no competitor held ADAS-specific earned media coverage in this pass. A dedicated trade-press and analyst outreach campaign on ADAS validation, sensor fusion, and perception algorithms could claim uncontested space.</li>
+                <li><strong>Consistent CEO/senior-executive spokesperson:</strong> Put one consistent, named senior voice (CEO or Chief Technology Officer level) behind Embitel's SDV narrative, reinforced across announcements, bylines, and interviews. KPIT owns this territory; only 3 of 4 other competitors show CEO presence at all. It's a high-ROI differentiator.</li>
+                <li><strong>Analyst-source recognition:</strong> Only eInfochips (ISG "Rising Star") has verified analyst coverage among the five competitors. Embitel should pursue analyst relations with Gartner, S&P Global Mobility, ABI Research, TechInsights — a relatively uncrowded channel with high credibility weight in OEM buying cycles.</li>
+                <li><strong>Trade-press direct relationships:</strong> Beyond wire syndication, trade-press coverage is concentrated in Tata Elxsi and (limited) Sasken. Build direct relationships with Autocar Professional, ET Auto, EE Times, and WardsAuto — they cover the competitive landscape regularly, and Embitel's ADAS/OTA/cybersecurity story has real newsworthiness for these outlets.</li>
+                <li><strong>Event/conference presence (CES, IAA, Embedded World):</strong> Only Tata Elxsi is verified; the others are either absent or unconfirmed. Event presence — keynotes, booth presence, track sponsorship — is a high-visibility, third-party validation mechanism that could set Embitel apart if combined with a newsworthy announcement (product launch, OEM partnership, analyst award).</li>
+                <li><strong>OTA/FOTA in earned media:</strong> Embitel has a named OTA/FOTA Accelerator (AWS-based, Uptane-ready, tested at scale); no competitor held earned media on OTA specifically in this pass. An industry narrative piece or case study on OTA's role in SDV architecture could be uniquely Embitel's to own.</li>
+            </ul>
+        </div>
+
+        <!-- Section 7: Research Caveat -->
+        <div class="research-caveat">
+            <div class="caveat-title">⚠️ Research Scope & Limitations</div>
+            <div class="caveat-text">
+                This dashboard reflects a research pass using targeted news search and direct article verification. Full web search was unavailable due to organizational proxy constraints. <strong>Gaps noted in this analysis (especially event presence, podcasts, YouTube coverage) may reflect search methodology limitations rather than true competitor silence.</strong> Before Embitel commits strategy against any white-space opportunity above, recommend: (1) deeper research pass with full web search access when available; (2) direct verification with conference organizers (CES, IAA, Embedded World) on competitor booth/speaking presence; (3) direct outreach to analyst houses (Gartner, ISG, ABI Research) for current competitive coverage. All sources are cited below with verification status.
+            </div>
+        </div>
+
+        <!-- Section 8: Cross-Competitor Summary Matrix -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-bar"></div>
+                <div class="section-title">Competitive Positioning Matrix</div>
+            </div>
+
+            <div class="comparison-matrix">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>KPIT</th>
+                            <th>Tata Elxsi</th>
+                            <th>Sasken</th>
+                            <th>LTTS</th>
+                            <th>eInfochips</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name"><strong>Core Narrative</strong></td>
+                            <td>AI + middleware</td>
+                            <td>Ecosystem integrator</td>
+                            <td>Cybersecurity specialist</td>
+                            <td>Multi-domain scale</td>
+                            <td>Rising Star (analyst-backed)</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>Named Brand/Product</strong></td>
+                            <td>Beacon (mentioned, not reinforced)</td>
+                            <td>AVENIR SDV (reinforced)</td>
+                            <td>None (cybersecurity-specific)</td>
+                            <td>5 accelerators (not reinforced)</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>PR Volume</strong></td>
+                            <td>High</td>
+                            <td>High</td>
+                            <td>Low</td>
+                            <td>Medium</td>
+                            <td>Very Low</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>Media Quality</strong></td>
+                            <td>Business press</td>
+                            <td>Trade + business press</td>
+                            <td>Trade + business press</td>
+                            <td>Business press only</td>
+                            <td>Analyst + byline</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>Executive Visibility</strong></td>
+                            <td>Strong (CEO)</td>
+                            <td>Moderate (BU)</td>
+                            <td>Weak (Practice)</td>
+                            <td>Weak (BU)</td>
+                            <td>Weak (Unconfirmed)</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>Event Presence</strong></td>
+                            <td>Not verified</td>
+                            <td>Strong</td>
+                            <td>Not verified</td>
+                            <td>Not verified</td>
+                            <td>Not verified</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>Analyst Recognition</strong></td>
+                            <td>None</td>
+                            <td>None</td>
+                            <td>None</td>
+                            <td>None</td>
+                            <td>ISG Rising Star</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>Topic Breadth</strong></td>
+                            <td>Broad (SDV + AI)</td>
+                            <td>Broad (SDV ecosystem)</td>
+                            <td>Narrow (cybersecurity)</td>
+                            <td>Broad (generic)</td>
+                            <td>Undefined</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name"><strong>Differentiation Strength</strong></td>
+                            <td>High (CEO + narrative)</td>
+                            <td>High (AVENIR + events)</td>
+                            <td>Medium (cybersecurity focus)</td>
+                            <td>Low (scale narrative)</td>
+                            <td>Medium (analyst backing)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Sources -->
+        <div class="sources-section">
+            <h3 class="sources-title">Evidence Base · Verification Status</h3>
+            <ul class="source-list">
+                <li><span class="vstat vstat-ok">Confirmed</span> KPIT, Mercedes-Benz to accelerate software-defined vehicle development. <a href="https://finance.yahoo.com/news/kpit-mercedes-benz-accelerate-software-114706335.html">Yahoo Finance (PRNewswire), April 29, 2025</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Basemark, KPIT Technologies join forces to accelerate next-generation automotive HMI solutions. <a href="https://www.msn.com/en-in/money/news/basemark-kpit-technologies-join-forces-to-accelerate-next-generation-automotive-hmi-solutions/ar-AA24WhPZ">MSN, June 2026</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Kishor Patil, MD and CEO KPIT Technologies: AI being leveraged for software-driven vehicles. <a href="https://www.msn.com/en-in/technology/tech-companies/kishor-patil-md-and-ceo-kpit-technologies-tells-us-how-is-ai-being-leveraged-for-software-driven/vi-AA1BUYY1">Business Today / MSN, 2025</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> KPIT CEO urges staff to be AI-ready. <a href="https://www.moneycontrol.com/news/business/information-technology/if-you-don-t-help-yourself-neither-can-the-company-kpit-ceo-urges-staff-to-be-ai-ready-13862657.html">Moneycontrol, March 2026</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> CES 2026: Autolink and Tata Elxsi Sign MoU to Accelerate Software Defined Vehicle Adoption. <a href="https://finance.yahoo.com/news/ces-2026-autolink-tata-elxsi-070000282.html">Yahoo Finance / PR Newswire, January 8, 2026</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Tata Elxsi and Qualcomm partner to accelerate software-defined vehicle development (AVENIR SDV + Snapdragon Ride Flex at CES 2025). <a href="https://www.just-auto.com/news/software-defined-vehicle-development/">Just Auto, 2025</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Tata Elxsi and Suzuki open new engineering centre for SDVs (Cloud HIL Center, Trivandrum). <a href="https://www.just-auto.com/news/tata-elxsi-and-suzuki-open-new-engineering-centre-for-sdvs/">Just Auto, 2025</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Tata Elxsi Wins €50 Million Strategic Engineering Deal with Leading European Automotive OEM. <a href="https://finance.yahoo.com/news/tata-elxsi-wins-50-million-154000547.html">Yahoo Finance / PR Newswire, April 17, 2025</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Sasken teams up with VicOne for automotive cybersecurity. <a href="https://www.just-auto.com/news/sasken-vicone-automotive-cybersecurity/">Just Auto, September 23, 2025</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Key win in LTTS' Mobility Segment across multiple vehicle technology domains. <a href="https://www.ad-hoc-news.de/boerse/news/marktberichte/key-win-in-ltts-mobility-segment-across-multiple-vehicle-technology/68526478">Ad-hoc-news, January 28, 2026</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> eInfochips Recognized as a 'Rising Star' in ISG Provider Lens™ – Automotive and Mobility Services and Solutions 2025 Report. <a href="https://www.abc27.com/business/press-releases/cision/20250710LA25626/einfochips-recognized-as-a-rising-star-in-isg-provider-lens-automotive-and-mobility-services-and-solutions-2025-report/">ABC27 (PR Newswire/Cision), July 10, 2025</a></li>
+                <li><span class="vstat vstat-partial">Partial/Snippet</span> Satyabrata Pradhan on how software defined vehicles are reshaping automotive engineering. <a href="https://www.msn.com/en-in/autos/general/satyabrata-pradhan-on-how-software-defined-vehicles-are-reshaping-automotive-engineering/ar-AA20PRAT">MSN / Autos, April 2026</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> KPIT Deploys its Next-Generation Mobility Intelligence Product [Beacon] Across Multiple OEMs. <a href="https://www.enterprisenews.com/press-release/story/133182/kpit-deploys-its-next-generation-mobility-intelligence-product-across-multiple-oems/">Enterprise News (PR wire), July 2026</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> Tata Elxsi Collaborates with Arm to Accelerate the Software-Defined Vehicle Journey for OEMs. <a href="https://www.prnewswire.co.uk/news-releases/tata-elxsi-collaborates-with-arm-to-accelerate-the-software-defined-vehicle-journey-for-oems-302137954.html">PR Newswire, May 7, 2024</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> JSW Motors, Tata Elxsi set up tech centre for software-defined mobility (JNEXT, Pune). <a href="https://www.msn.com/en-us/autos/general/jsw-motors-tata-elxsi-set-up-tech-centre-for-software-defined-mobility/ar-AA21Ro7O">MSN, May 2026</a></li>
+                <li><span class="vstat vstat-ok">Confirmed</span> LTTS and thyssenkrupp Steering partner to establish global software hub in Pune. <a href="https://www.msn.com/en-in/technology/tech-companies/ltts-and-thyssenkrupp-steering-partner-to-establish-global-software-hub-in-pune/ar-AA1HGECs">MSN, 2025</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

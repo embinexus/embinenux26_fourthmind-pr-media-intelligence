@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fourth Mind Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ color-scheme: light;
+    --orange:#ff8702; --orange-dark:#c25f00; --orange-bg:#fff3e6;
+    --blue:#1e3a8a; --blue-bg:#e8effc; --ink:#16203a; --muted:#5b6677; --line:#e4e9f2; --soft:#f6f8fc;
+    --red:#b91c1c; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#ffffff;color:var(--ink);font-family:Roboto,system-ui,sans-serif;line-height:1.55;
+       padding-inline:max(16px,3vw);padding-block:36px 56px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1680px;margin:0 auto;display:flex;flex-direction:column;gap:28px;}
+  header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;
+         padding-bottom:22px;border-bottom:2px solid var(--line);}
+  .eyebrow{font-family:'Roboto Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.16em;
+           text-transform:uppercase;color:var(--orange-dark);margin-bottom:8px;}
+  h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1.12;
+      letter-spacing:-.02em;text-wrap:balance;}
+  h1 span{color:var(--orange);}
+  .lede{max-width:62ch;color:var(--muted);font-size:15px;margin-top:10px;}
+  .stats{display:flex;gap:28px;flex-wrap:wrap;}
+  .stat b{display:block;font-family:Montserrat,sans-serif;font-size:26px;font-weight:800;color:var(--blue);
+          font-variant-numeric:tabular-nums;line-height:1.1;}
+  .stat span{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  figure{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;}
+  .scroll{overflow-x:auto;}
+  .scroll svg{display:block;width:100%;min-width:1080px;height:auto;}
+  figcaption{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;padding:14px 22px;border-top:1px solid var(--line);
+             background:var(--soft);font-size:12.5px;color:var(--muted);}
+  .key{display:inline-flex;align-items:center;gap:8px;}
+  .key i{display:inline-block;width:30px;height:0;border-top:2px solid var(--muted);}
+  .key i.or{border-top:2px dashed var(--orange);} .key i.bl{border-color:var(--blue);}
+  .key i.red{border-top:2px dashed var(--red);}
+  .cap{flex-basis:100%;color:var(--ink);font-size:13px;}
+  h2{font-family:Montserrat,sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px;}
+  h2::before{content:"";width:4px;height:20px;border-radius:2px;background:var(--orange);}
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:720px;}
+  th{text-align:left;font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+     color:var(--muted);background:var(--soft);padding:12px 18px;border-bottom:1px solid var(--line);}
+  td{padding:12px 18px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted);}
+  tr:last-child td{border-bottom:none;}
+  td.layer{font-family:'Roboto Mono',monospace;font-size:11.5px;font-weight:700;color:var(--orange-dark);
+           text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;}
+  td.tech{color:var(--ink);font-weight:500;}
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  .p{padding:18px 20px;border-radius:14px;background:var(--soft);}
+  .p h3{font-family:Montserrat,sans-serif;font-size:14.5px;font-weight:700;margin-bottom:6px;color:var(--blue);}
+  .p p{font-size:13.5px;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Embitel Technologies · SDV PR &amp; Competitive Intelligence</div>
+      <h1>The Fourth Mind <span>·</span> Solution Architecture</h1>
+      <p class="lede">How public and internal sources become a human-approved competitive picture: evidence is fetched and source-tagged, reasoned over by a four-module Claude pipeline with approval gates, persisted as project knowledge, and published as live dashboards.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>6</b><span>layers</span></div>
+      <div class="stat"><b>4</b><span>modules</span></div>
+      <div class="stat"><b>2</b><span>human gates</span></div>
+      <div class="stat"><b>5</b><span>rivals tracked</span></div>
+    </div>
+  </header>
+
+  <figure>
+    <div class="scroll"><svg viewBox="0 0 1640 1030" role="img" aria-label="The Fourth Mind architecture: data sources are ingested and provenance-tagged, a human-gated four-module Claude pipeline reasons over them, results persist in a project knowledge base and artifact database, and render as hosted dashboards." xmlns="http://www.w3.org/2000/svg"><defs>
+<marker id="m-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5b6677"/></marker>
+<marker id="m-ink-s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10 0 L0 5 L10 10 z" fill="#5b6677"/></marker>
+<marker id="m-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ff8702"/></marker>
+<marker id="m-or-s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10 0 L0 5 L10 10 z" fill="#ff8702"/></marker>
+<marker id="m-bl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1e3a8a"/></marker>
+<marker id="m-bl-s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10 0 L0 5 L10 10 z" fill="#1e3a8a"/></marker>
+<marker id="m-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker>
+<marker id="m-red-s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10 0 L0 5 L10 10 z" fill="#b91c1c"/></marker>
+<pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="#e3e9f3"/></pattern>
+</defs>
+<rect x="0" y="0" width="1640" height="1030" rx="0" fill="url(#dots)" stroke="none" stroke-width="0"/>
+<text x="20" y="88" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.4">01 · DATA SOURCES</text>
+<rect x="20" y="100" width="240" height="74" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="32" y="122" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Embitel SDV Knowledge Repo</text>
+<text x="32" y="140" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">internal .docx</text>
+<text x="32" y="155" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">company ground truth</text>
+<rect x="20" y="188" width="240" height="74" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="32" y="210" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">embitel.com</text>
+<text x="32" y="228" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">50+ SDV service pages</text>
+<text x="32" y="243" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">case studies · partners · awards</text>
+<rect x="20" y="276" width="240" height="74" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="32" y="298" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Competitor websites</text>
+<text x="32" y="316" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">KPIT · Tata Elxsi · Sasken</text>
+<text x="32" y="331" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">LTTS · eInfochips</text>
+<rect x="20" y="364" width="240" height="74" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="32" y="386" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">News &amp; trade media</text>
+<text x="32" y="404" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">wire · Autocar Pro · ET Auto</text>
+<text x="32" y="419" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Just Auto · CXOToday</text>
+<rect x="20" y="452" width="240" height="74" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="32" y="474" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Analyst &amp; event signals</text>
+<text x="32" y="492" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">ISG ratings · CES / IAA</text>
+<text x="32" y="507" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">executive bylines</text>
+<rect x="20" y="540" width="240" height="74" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="32" y="562" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Brand assets</text>
+<text x="32" y="580" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">banner imagery · colour tokens</text>
+<text x="32" y="595" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">#ff8702 orange · #1e3a8a blue</text>
+<text x="320" y="88" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.4">02 · INGESTION &amp; RETRIEVAL</text>
+<rect x="320" y="100" width="240" height="74" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="332" y="122" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">DOCX text extraction</text>
+<text x="332" y="140" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">python · repo → structured KB</text>
+<text x="332" y="155" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">feeds CLAUDE.md</text>
+<rect x="320" y="188" width="240" height="148" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="332" y="210" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">WebFetch</text>
+<text x="332" y="228" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">HTML → clean text, per page</text>
+<text x="332" y="243" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">meta-description recovery</text>
+<text x="332" y="258" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">for JS-rendered / paywalled</text>
+<text x="332" y="273" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">pages · company + rivals</text>
+<text x="332" y="288" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">no page = no claim</text>
+<rect x="320" y="356" width="240" height="54" rx="10" fill="#fdecec" stroke="#b91c1c" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="332" y="378" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#b91c1c" text-anchor="start">WebSearch</text>
+<text x="332" y="396" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#b91c1c" text-anchor="start">blocked by egress proxy · HTTP 403</text>
+<rect x="320" y="424" width="240" height="102" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="332" y="446" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Bing News fallback</text>
+<text x="332" y="464" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">news queries routed via WebFetch</text>
+<text x="332" y="479" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">direct article verification</text>
+<text x="332" y="494" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">window: Sep 2025 – Sep 2026</text>
+<rect x="320" y="552" width="240" height="98" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="332" y="574" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Provenance tagging</text>
+<text x="332" y="592" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">every claim carries its source tag</text>
+<rect x="332" y="604" width="102" height="17" rx="4" fill="#e8effc" stroke="none" stroke-width="0"/>
+<text x="383" y="616.5" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">REPOSITORY</text>
+<rect x="442" y="604" width="102" height="17" rx="4" fill="#e9f6ee" stroke="none" stroke-width="0"/>
+<text x="493" y="616.5" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#15803d" text-anchor="middle">BROWSED</text>
+<rect x="332" y="625" width="102" height="17" rx="4" fill="#fff3e6" stroke="none" stroke-width="0"/>
+<text x="383" y="637.5" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#c25f00" text-anchor="middle">SYNOPSIS</text>
+<rect x="442" y="625" width="102" height="17" rx="4" fill="#fdecec" stroke="none" stroke-width="0"/>
+<text x="493" y="637.5" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#b91c1c" text-anchor="middle">TITLE-ONLY</text>
+<path d="M260 137 L318 137" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="289" y="131" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#5b6677" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">parse</text>
+<path d="M260 225 L318 225" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="289" y="219" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#5b6677" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">fetch</text>
+<path d="M260 313 L318 313" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="289" y="307" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#5b6677" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">fetch</text>
+<path d="M260 383 L318 383" fill="none" stroke="#b91c1c" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-red)" stroke-dasharray="4 3"/>
+<text x="289" y="387.5" font-family="Roboto, system-ui, sans-serif" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">✕</text>
+<path d="M260 432 L318 432" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="289" y="426" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="500" fill="#5b6677" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">fallback</text>
+<path d="M260 500 L318 500" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="289" y="494" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#5b6677" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">query</text>
+<path d="M588 137 L588 601" fill="none" stroke="#5b6677" stroke-width="1.5"/>
+<path d="M560 137 L588 137" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="588" cy="137" r="3" fill="#5b6677"/>
+<path d="M560 262 L588 262" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="588" cy="262" r="3" fill="#5b6677"/>
+<path d="M560 475 L588 475" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="588" cy="475" r="3" fill="#5b6677"/>
+<path d="M560 601 L588 601" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<circle cx="588" cy="601" r="3" fill="#5b6677"/>
+<rect x="740" y="16" width="260" height="58" rx="12" fill="#fff3e6" stroke="#ff8702" stroke-width="1.5"/>
+<text x="870" y="40" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="700" fill="#16203a" text-anchor="middle">Human reviewer · Embitel PR</text>
+<text x="870" y="58" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#c25f00" text-anchor="middle">signs off each checkpoint</text>
+<rect x="600" y="100" width="720" height="584" rx="16" fill="#fbfcfe" stroke="#1e3a8a" stroke-width="1.6"/>
+<text x="620" y="128" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#1e3a8a" text-anchor="start" letter-spacing="1.4">03 · REASONING CORE</text>
+<text x="1300" y="128" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#5b6677" text-anchor="end" letter-spacing="1.4">THE FOURTH MIND</text>
+<rect x="620" y="146" width="130" height="150" rx="12" fill="#fff" stroke="#ff8702" stroke-width="1.5"/>
+<path d="M620 158 a12 12 0 0 1 12 -12 h106 a12 12 0 0 1 12 12 v14 h-130 z" fill="#fff3e6"/>
+<text x="632" y="163" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.2">MODULE 01</text>
+<text x="632" y="192" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">Company</text>
+<text x="632" y="208" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">Understanding</text>
+<circle cx="635" cy="230.5" r="2" fill="#ff8702"/>
+<text x="642" y="234" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Ground-truth model</text>
+<circle cx="635" cy="248.5" r="2" fill="#ff8702"/>
+<text x="642" y="252" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">SDV-only scope</text>
+<circle cx="635" cy="266.5" r="2" fill="#ff8702"/>
+<text x="642" y="270" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">→ CLAUDE.md</text>
+<rect x="803" y="146" width="130" height="150" rx="12" fill="#fff" stroke="#ff8702" stroke-width="1.5"/>
+<path d="M803 158 a12 12 0 0 1 12 -12 h106 a12 12 0 0 1 12 12 v14 h-130 z" fill="#fff3e6"/>
+<text x="815" y="163" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.2">MODULE 02</text>
+<text x="815" y="192" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">Competitor</text>
+<text x="815" y="208" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">Radar</text>
+<circle cx="818" cy="230.5" r="2" fill="#ff8702"/>
+<text x="825" y="234" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">5 validated rivals</text>
+<circle cx="818" cy="248.5" r="2" fill="#ff8702"/>
+<text x="825" y="252" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Confidence scoring</text>
+<circle cx="818" cy="266.5" r="2" fill="#ff8702"/>
+<text x="825" y="270" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Overlap vs. edge</text>
+<rect x="986" y="146" width="130" height="150" rx="12" fill="#fff" stroke="#ff8702" stroke-width="1.5"/>
+<path d="M986 158 a12 12 0 0 1 12 -12 h106 a12 12 0 0 1 12 12 v14 h-130 z" fill="#fff3e6"/>
+<text x="998" y="163" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.2">MODULE 03</text>
+<text x="998" y="192" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">PR</text>
+<text x="998" y="208" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">Intelligence</text>
+<circle cx="1001" cy="230.5" r="2" fill="#ff8702"/>
+<text x="1008" y="234" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Narrative · media</text>
+<circle cx="1001" cy="248.5" r="2" fill="#ff8702"/>
+<text x="1008" y="252" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Exec · events</text>
+<circle cx="1001" cy="266.5" r="2" fill="#ff8702"/>
+<text x="1008" y="270" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">FACT/INSIGHT/OPP.</text>
+<rect x="1169" y="146" width="130" height="150" rx="12" fill="#fff" stroke="#ff8702" stroke-width="1.5"/>
+<path d="M1169 158 a12 12 0 0 1 12 -12 h106 a12 12 0 0 1 12 12 v14 h-130 z" fill="#fff3e6"/>
+<text x="1181" y="163" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.2">MODULE 04</text>
+<text x="1181" y="192" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">PR Analytics</text>
+<text x="1181" y="208" font-family="Montserrat, system-ui, sans-serif" font-size="13" font-weight="800" fill="#16203a" text-anchor="start">&amp; Strategy</text>
+<circle cx="1184" cy="230.5" r="2" fill="#ff8702"/>
+<text x="1191" y="234" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Visibility matrix</text>
+<circle cx="1184" cy="248.5" r="2" fill="#ff8702"/>
+<text x="1191" y="252" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Positioning matrix</text>
+<circle cx="1184" cy="266.5" r="2" fill="#ff8702"/>
+<text x="1191" y="270" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">White-space plays</text>
+<path d="M750.0 221 L801.0 221" fill="none" stroke="#ff8702" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m-or)"/>
+<path d="M776.5 210 L787.5 221 L776.5 232 L765.5 221 z" fill="#ff8702" stroke="#fff" stroke-width="1.5"/>
+<text x="776.5" y="225" font-family="Roboto, system-ui, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">✓</text>
+<text x="776.5" y="249" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="500" fill="#c25f00" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">gate 1</text>
+<path d="M933.0 221 L984.0 221" fill="none" stroke="#ff8702" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m-or)"/>
+<path d="M959.5 210 L970.5 221 L959.5 232 L948.5 221 z" fill="#ff8702" stroke="#fff" stroke-width="1.5"/>
+<text x="959.5" y="225" font-family="Roboto, system-ui, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">✓</text>
+<text x="959.5" y="249" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="500" fill="#c25f00" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">gate 2</text>
+<path d="M1116 221 L1167 221" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="1142" y="214" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="500" fill="#5b6677" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">feeds</text>
+<path d="M776.5 74 L776.5 208" fill="none" stroke="#ff8702" stroke-width="1.4" stroke-linejoin="round" marker-end="url(#m-or)" stroke-dasharray="5 4"/>
+<path d="M959.5 74 L959.5 208" fill="none" stroke="#ff8702" stroke-width="1.4" stroke-linejoin="round" marker-end="url(#m-or)" stroke-dasharray="5 4"/>
+<text x="868" y="92" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#c25f00" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">approve / revise</text>
+<path d="M588 322 L1051 322" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="588" cy="322" r="3" fill="#5b6677"/>
+<path d="M685 322 L685 298" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<circle cx="685" cy="322" r="2.6" fill="#5b6677"/>
+<path d="M868 322 L868 298" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<circle cx="868" cy="322" r="2.6" fill="#5b6677"/>
+<path d="M1051 322 L1051 298" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<circle cx="1051" cy="322" r="2.6" fill="#5b6677"/>
+<text x="1062" y="326" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#5b6677" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">provenance-tagged evidence</text>
+<text x="620" y="356" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#5b6677" text-anchor="start" letter-spacing="1.4">GUARDRAILS</text>
+<rect x="620" y="366" width="161" height="48" rx="8" fill="#fff7ed" stroke="#f6cf9f" stroke-width="1"/>
+<text x="631" y="385" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">SDV-only scope</text>
+<text x="631" y="401" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">Digital Transf. excluded</text>
+<rect x="793" y="366" width="161" height="48" rx="8" fill="#fff7ed" stroke="#f6cf9f" stroke-width="1"/>
+<text x="804" y="385" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">Rival rule</text>
+<text x="804" y="401" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">service firms, not OEM/Tier-1</text>
+<rect x="966" y="366" width="161" height="48" rx="8" fill="#fff7ed" stroke="#f6cf9f" stroke-width="1"/>
+<text x="977" y="385" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">No fabrication</text>
+<text x="977" y="401" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">gaps flagged, never filled</text>
+<rect x="1139" y="366" width="161" height="48" rx="8" fill="#fff7ed" stroke="#f6cf9f" stroke-width="1"/>
+<text x="1150" y="385" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">Evidence per claim</text>
+<text x="1150" y="401" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">source URL + tag</text>
+<text x="620" y="442" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#5b6677" text-anchor="start" letter-spacing="1.4">SKILLS (REUSABLE INSTRUCTIONS)</text>
+<rect x="620" y="452" width="161" height="48" rx="8" fill="#e8effc" stroke="#c7d5f3" stroke-width="1"/>
+<text x="631" y="471" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">artifact-design</text>
+<text x="631" y="487" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">tokens · type · layout</text>
+<rect x="793" y="452" width="161" height="48" rx="8" fill="#e8effc" stroke="#c7d5f3" stroke-width="1"/>
+<text x="804" y="471" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">artifact-capabilities</text>
+<text x="804" y="487" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">window.claude db API</text>
+<rect x="966" y="452" width="161" height="48" rx="8" fill="#e8effc" stroke="#c7d5f3" stroke-width="1"/>
+<text x="977" y="471" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">artifact-diagramming</text>
+<text x="977" y="487" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">inline SVG figures</text>
+<rect x="1139" y="452" width="161" height="48" rx="8" fill="#e8effc" stroke="#c7d5f3" stroke-width="1"/>
+<text x="1150" y="471" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#16203a" text-anchor="start">pr-competitive-intel</text>
+<text x="1150" y="487" font-family="Roboto, system-ui, sans-serif" font-size="10" font-weight="400" fill="#5b6677" text-anchor="start">custom workflow skill</text>
+<text x="620" y="528" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#5b6677" text-anchor="start" letter-spacing="1.4">AGENT LOOP</text>
+<rect x="620" y="538" width="112" height="34" rx="17" fill="#fff" stroke="#1e3a8a" stroke-width="1.3"/>
+<text x="676.0" y="559" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">Plan</text>
+<path d="M732 555 L760 555" fill="none" stroke="#1e3a8a" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-bl)"/>
+<rect x="762" y="538" width="112" height="34" rx="17" fill="#fff" stroke="#1e3a8a" stroke-width="1.3"/>
+<text x="818.0" y="559" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">Retrieve</text>
+<path d="M874 555 L902 555" fill="none" stroke="#1e3a8a" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-bl)"/>
+<rect x="904" y="538" width="112" height="34" rx="17" fill="#fff" stroke="#1e3a8a" stroke-width="1.3"/>
+<text x="960.0" y="559" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">Verify</text>
+<path d="M1016 555 L1044 555" fill="none" stroke="#1e3a8a" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-bl)"/>
+<rect x="1046" y="538" width="112" height="34" rx="17" fill="#fff" stroke="#1e3a8a" stroke-width="1.3"/>
+<text x="1102.0" y="559" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">Synthesize</text>
+<path d="M1158 555 L1186 555" fill="none" stroke="#1e3a8a" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-bl)"/>
+<rect x="1188" y="538" width="112" height="34" rx="17" fill="#fff" stroke="#1e3a8a" stroke-width="1.3"/>
+<text x="1244.0" y="559" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle">Render</text>
+<path d="M1244 572 L1244 590 L676 590 L676 574" fill="none" stroke="#1e3a8a" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-bl)" stroke-dasharray="4 3"/>
+<text x="960" y="594" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="500" fill="#1e3a8a" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">iterate on reviewer feedback</text>
+<text x="620" y="616" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#5b6677" text-anchor="start" letter-spacing="1.4">RUNTIME</text>
+<rect x="620" y="626" width="220" height="40" rx="8" fill="#16203a" stroke="#16203a" stroke-width="1"/>
+<text x="730.0" y="650.5" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">Claude · Sonnet 5 / Opus 5.5</text>
+<rect x="850" y="626" width="210" height="40" rx="8" fill="#16203a" stroke="#16203a" stroke-width="1"/>
+<text x="955.0" y="650.5" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">Claude Agent SDK · Cowork</text>
+<rect x="1070" y="626" width="230" height="40" rx="8" fill="#16203a" stroke="#16203a" stroke-width="1"/>
+<text x="1185.0" y="650.5" font-family="Montserrat, system-ui, sans-serif" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">Cloud sandbox · Python · Node</text>
+<rect x="600" y="724" width="720" height="124" rx="14" fill="#f6f8fc" stroke="#cfd8e6" stroke-width="1"/>
+<text x="620" y="744" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#1e3a8a" text-anchor="start" letter-spacing="1.4">04 · PERSISTENCE &amp; MEMORY</text>
+<rect x="620" y="756" width="220" height="80" rx="10" fill="#fff" stroke="#1e3a8a" stroke-width="1.2"/>
+<text x="632" y="778" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Claude Project KB</text>
+<text x="632" y="796" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">CLAUDE.md + module docs</text>
+<text x="632" y="811" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">memory across sessions</text>
+<rect x="850" y="756" width="220" height="80" rx="10" fill="#fff" stroke="#1e3a8a" stroke-width="1.2"/>
+<text x="862" y="778" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Session workspace</text>
+<text x="862" y="796" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">ephemeral cloud scratch</text>
+<text x="862" y="811" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">patch scripts · screenshots</text>
+<rect x="1080" y="756" width="220" height="80" rx="10" fill="#fff" stroke="#1e3a8a" stroke-width="1.2"/>
+<text x="1092" y="778" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Artifact shared DB</text>
+<text x="1092" y="796" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">window.claude db capability</text>
+<text x="1092" y="811" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">competitors · activityLog</text>
+<path d="M828 686 L828 754" fill="none" stroke="#1e3a8a" stroke-width="1.4" stroke-linejoin="round" marker-end="url(#m-bl)" marker-start="url(#m-bl-s)"/>
+<text x="834" y="703" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#1e3a8a" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">read ground truth</text>
+<text x="834" y="716" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#1e3a8a" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">write module docs</text>
+<path d="M960 686 L960 754" fill="none" stroke="#1e3a8a" stroke-width="1.4" stroke-linejoin="round" marker-end="url(#m-bl)" marker-start="url(#m-bl-s)"/>
+<text x="966" y="709" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#1e3a8a" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">build files</text>
+<path d="M1190 686 L1190 754" fill="none" stroke="#1e3a8a" stroke-width="1.4" stroke-linejoin="round" marker-end="url(#m-bl)" marker-start="url(#m-bl-s)"/>
+<text x="1196" y="703" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#1e3a8a" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">rival list +</text>
+<text x="1196" y="716" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#1e3a8a" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">validation state</text>
+<rect x="1360" y="100" width="260" height="600" rx="16" fill="#fbfcfe" stroke="#ff8702" stroke-width="1.6"/>
+<text x="1380" y="128" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.4">05 · PRESENTATION</text>
+<text x="1380" y="145" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">hosted on claude.ai as Artifacts</text>
+<rect x="1380" y="160" width="220" height="80" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="1392" y="182" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Module Hub</text>
+<text x="1392" y="200" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">4-tab dashboard · sidebar nav</text>
+<text x="1392" y="215" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">banner heroes · published v4</text>
+<rect x="1380" y="254" width="220" height="80" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="1392" y="276" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">PR Analytics Dashboard</text>
+<text x="1392" y="294" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">visibility · positioning</text>
+<text x="1392" y="309" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">white-space recommendations</text>
+<rect x="1380" y="348" width="220" height="80" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="1392" y="370" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Competitor Radar (live)</text>
+<text x="1392" y="388" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">keep / drop validation</text>
+<text x="1392" y="403" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">shared activity log</text>
+<text x="1380" y="456" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#5b6677" text-anchor="start" letter-spacing="1.4">FRONT-END STACK</text>
+<rect x="1380" y="466" width="220" height="28" rx="7" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<circle cx="1394" cy="480" r="3" fill="#ff8702"/>
+<text x="1404" y="484" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#16203a" text-anchor="start">HTML5 + CSS design tokens</text>
+<rect x="1380" y="502" width="220" height="28" rx="7" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<circle cx="1394" cy="516" r="3" fill="#ff8702"/>
+<text x="1404" y="520" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#16203a" text-anchor="start">Vanilla JS · zero frameworks</text>
+<rect x="1380" y="538" width="220" height="28" rx="7" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<circle cx="1394" cy="552" r="3" fill="#ff8702"/>
+<text x="1404" y="556" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#16203a" text-anchor="start">Inline SVG icons &amp; diagrams</text>
+<rect x="1380" y="574" width="220" height="28" rx="7" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<circle cx="1394" cy="588" r="3" fill="#ff8702"/>
+<text x="1404" y="592" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#16203a" text-anchor="start">Montserrat · Roboto · Roboto Mono</text>
+<rect x="1380" y="610" width="220" height="28" rx="7" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<circle cx="1394" cy="624" r="3" fill="#ff8702"/>
+<text x="1404" y="628" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#16203a" text-anchor="start">base64 imagery · CSP-safe</text>
+<rect x="1380" y="646" width="220" height="28" rx="7" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<circle cx="1394" cy="660" r="3" fill="#ff8702"/>
+<text x="1404" y="664" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#16203a" text-anchor="start">Responsive ≤ 820px layout</text>
+<path d="M1299 200 L1378 200" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="1339" y="194" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#5b6677" text-anchor="middle" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">render</text>
+<path d="M1299 280 L1378 280" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<path d="M1300 796 L1340 796 L1340 388 L1378 388" fill="none" stroke="#1e3a8a" stroke-width="1.4" stroke-linejoin="round" marker-end="url(#m-bl)" marker-start="url(#m-bl-s)"/>
+<text x="1334" y="560" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#1e3a8a" text-anchor="middle" transform="rotate(-90 1334 560)" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">live db sync</text>
+<rect x="1440" y="730" width="180" height="110" rx="12" fill="#fff" stroke="#16203a" stroke-width="1.3"/>
+<text x="1456" y="754" font-family="Montserrat, system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#16203a" text-anchor="start">Stakeholders</text>
+<text x="1456" y="774" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">Embitel PR &amp; leadership</text>
+<text x="1456" y="790" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">hackathon judges</text>
+<text x="1456" y="806" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">any browser · any device</text>
+<path d="M1530 700 L1530 728" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="1536" y="719" font-family="'Roboto Mono', ui-monospace, monospace" font-size="9.5" font-weight="500" fill="#5b6677" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">view · share</text>
+<rect x="320" y="874" width="1300" height="136" rx="14" fill="#f6f8fc" stroke="#cfd8e6" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="340" y="896" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#c25f00" text-anchor="start" letter-spacing="1.4">06 · BUILD &amp; QA TOOLCHAIN</text>
+<rect x="340" y="908" width="240" height="86" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="352" y="930" font-family="Montserrat, system-ui, sans-serif" font-size="12" font-weight="700" fill="#16203a" text-anchor="start">Python patch scripts</text>
+<text x="352" y="950" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">exact-match edits</text>
+<text x="352" y="966" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">assert-guarded anchors</text>
+<text x="568" y="930" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="700" fill="#ff8702" text-anchor="end">1</text>
+<path d="M580 951 L590 951" fill="none" stroke="#5b6677" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<rect x="592" y="908" width="240" height="86" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="604" y="930" font-family="Montserrat, system-ui, sans-serif" font-size="12" font-weight="700" fill="#16203a" text-anchor="start">base64 asset embedding</text>
+<text x="604" y="950" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">banners → data: URIs</text>
+<text x="604" y="966" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">no external image hosts</text>
+<text x="820" y="930" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="700" fill="#ff8702" text-anchor="end">2</text>
+<path d="M832 951 L842 951" fill="none" stroke="#5b6677" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<rect x="844" y="908" width="240" height="86" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="856" y="930" font-family="Montserrat, system-ui, sans-serif" font-size="12" font-weight="700" fill="#16203a" text-anchor="start">Playwright + Chromium</text>
+<text x="856" y="950" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">headless screenshots</text>
+<text x="856" y="966" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">per-tab visual QA</text>
+<text x="1072" y="930" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="700" fill="#ff8702" text-anchor="end">3</text>
+<path d="M1084 951 L1094 951" fill="none" stroke="#5b6677" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<rect x="1096" y="908" width="240" height="86" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="1108" y="930" font-family="Montserrat, system-ui, sans-serif" font-size="12" font-weight="700" fill="#16203a" text-anchor="start">Section-diff regression</text>
+<text x="1108" y="950" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">every heading vs. baseline</text>
+<text x="1108" y="966" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">catches dropped content</text>
+<text x="1324" y="930" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="700" fill="#ff8702" text-anchor="end">4</text>
+<path d="M1336 951 L1346 951" fill="none" stroke="#5b6677" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<rect x="1348" y="908" width="240" height="86" rx="10" fill="#fff" stroke="#cfd8e6" stroke-width="1"/>
+<text x="1360" y="930" font-family="Montserrat, system-ui, sans-serif" font-size="12" font-weight="700" fill="#16203a" text-anchor="start">Versioned publish</text>
+<text x="1360" y="950" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">in-place artifact URL</text>
+<text x="1360" y="966" font-family="Roboto, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5b6677" text-anchor="start">v1 → v4, one stable link</text>
+<text x="1576" y="930" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="700" fill="#ff8702" text-anchor="end">5</text>
+<path d="M140 614 L140 951 L338 951" fill="none" stroke="#5b6677" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#m-ink)"/>
+<text x="146" y="780" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#5b6677" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">brand banners</text>
+<path d="M960 836 L960 872" fill="none" stroke="#1e3a8a" stroke-width="1.3" stroke-linejoin="round" marker-end="url(#m-bl)"/>
+<text x="966" y="860" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#1e3a8a" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">scratch</text>
+<path d="M1390 906 L1390 702" fill="none" stroke="#ff8702" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m-or)"/>
+<text x="1396" y="860" font-family="'Roboto Mono', ui-monospace, monospace" font-size="10" font-weight="500" fill="#c25f00" text-anchor="start" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">publish</text></svg></div>
+    <figcaption>
+      <span class="key"><i></i>data flow</span>
+      <span class="key"><i class="or"></i>human approval</span>
+      <span class="key"><i class="bl"></i>persistence read / write</span>
+      <span class="key"><i class="red"></i>blocked path (rerouted)</span>
+      <span class="cap">Every claim enters the core with a provenance tag; modules 2 and 3 cannot start until the reviewer clears the gate before them.</span>
+    </figcaption>
+  </figure>
+
+  <section style="display:flex;flex-direction:column;gap:14px;">
+    <h2>Technology stack</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Layer</th><th>Technology</th><th>Role in the solution</th></tr></thead>
+      <tbody><tr><td class='layer'>Reasoning</td><td class='tech'>Claude Sonnet 5 / Opus 5.5 (Anthropic)</td><td>Research synthesis, competitor validation, PR analysis, dashboard authoring</td></tr>
+<tr><td class='layer'>Orchestration</td><td class='tech'>Claude Agent SDK in Cowork mode</td><td>Multi-step agent loop with tools, skills and human checkpoints</td></tr>
+<tr><td class='layer'>Compute</td><td class='tech'>Isolated cloud sandbox (Linux, Python 3, Node.js)</td><td>DOCX parsing, patch scripts, headless rendering</td></tr>
+<tr><td class='layer'>Retrieval</td><td class='tech'>WebFetch · Bing News fallback route</td><td>Page-level evidence; fallback when WebSearch was proxy-blocked (HTTP 403)</td></tr>
+<tr><td class='layer'>Knowledge</td><td class='tech'>Claude Projects — CLAUDE.md + per-module docs</td><td>Authoritative ground truth, persisted across sessions</td></tr>
+<tr><td class='layer'>State</td><td class='tech'>Artifact db capability (window.claude)</td><td>Shared competitor list, validation status, activity log</td></tr>
+<tr><td class='layer'>Skills</td><td class='tech'>artifact-design · capabilities · diagramming · pr-competitive-intel</td><td>Reusable instructions for design system, runtime API and the PR workflow</td></tr>
+<tr><td class='layer'>Front end</td><td class='tech'>HTML5, CSS custom properties, vanilla JS, inline SVG</td><td>Zero-dependency dashboards; base64 imagery for CSP-safe hosting</td></tr>
+<tr><td class='layer'>Typography</td><td class='tech'>Google Fonts — Montserrat, Roboto, Roboto Mono</td><td>Display, body and data faces</td></tr>
+<tr><td class='layer'>QA</td><td class='tech'>Playwright + headless Chromium, section-diff checks</td><td>Screenshot review per tab; regression check against the baseline</td></tr>
+<tr><td class='layer'>Delivery</td><td class='tech'>claude.ai Artifacts (versioned, private → shareable)</td><td>Module Hub, Competitor Radar, PR Analytics Dashboard</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px;">
+    <h2>Design principles</h2>
+    <div class="principles">
+      <div class="p"><h3>Human-gated, not autonomous</h3><p>Company Understanding and the competitor list each need explicit sign-off before downstream analysis runs, so strategy is built on facts the PR team has confirmed.</p></div>
+      <div class="p"><h3>Provenance on every claim</h3><p>Each fact is tagged REPOSITORY, BROWSED, SYNOPSIS or TITLE-ONLY. Unreachable pages are flagged as gaps rather than filled with guesses.</p></div>
+      <div class="p"><h3>Resilient retrieval</h3><p>When the egress proxy blocked WebSearch, news research was rerouted through Bing News via WebFetch, with each article verified directly.</p></div>
+      <div class="p"><h3>Zero-dependency delivery</h3><p>Dashboards are plain HTML, CSS and JS with inlined imagery, so they load on any device and keep one stable, versioned link.</p></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

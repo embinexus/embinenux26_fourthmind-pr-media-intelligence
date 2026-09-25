@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Competitor Radar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <nav class="rail">
+    <div class="brand">
+      <div class="mark">The Fourth <span>Mind</span></div>
+      <div class="sub">SDV · PR &amp; Competitive Intelligence</div>
+    </div>
+    <div class="stages">
+      <div class="stage done"><span class="num">01</span><div><span class="label">Knowledge Repository</span><span class="stat">✓ Locked</span></div></div>
+      <div class="stage done"><span class="num">02</span><div><span class="label">Company Understanding</span><span class="stat">✓ Approved</span></div></div>
+      <div class="stage active"><span class="num">03</span><div><span class="label">Competitor Analysis</span><span class="stat" id="rail-stage3-stat">✓ Approved</span></div></div>
+      <div class="stage locked"><span class="num">04</span><div><span class="label">PR &amp; Media Research</span><span class="stat">Locked</span></div></div>
+      <div class="stage locked"><span class="num">05</span><div><span class="label">PR Analytics</span><span class="stat">Locked</span></div></div>
+    </div>
+    <div class="rail-foot">Embitel Technologies India<br>SDV pillar only</div>
+  </nav>
+
+  <main>
+    <header class="page">
+      <h1>Competitor Radar</h1>
+      <p>Five SDV-focused engineering services firms researched as candidate competitors to Embitel, validated by a human before any PR or media research begins.</p>
+    </header>
+
+    <div class="status-banner" id="status-banner">
+      <div class="left">
+        <span class="status-dot"></span>
+        <div>
+          <div class="title" id="status-title">Approved — 5 of 5 competitors confirmed</div>
+          <div class="meta" id="status-meta">Approved by Anne Chakraborti · Embitel Technologies India · Sept 2026</div>
+        </div>
+      </div>
+      <button class="btn" id="reopen-btn">Reopen for revision</button>
+    </div>
+
+    <div class="method-strip">
+      <span>🔎</span>
+      <div><strong>Research method:</strong> each entry below was compiled from a live fetch of the competitor's own site (plus one cross-check source where noted), not generated from model knowledge alone. Facts are tagged <span class="tag fact">fact</span>, interpretation is tagged <span class="tag interp">read</span>.</div>
+    </div>
+
+    <section class="block">
+      <h2>Proposed competitors</h2>
+      <div class="cards" id="cards"></div>
+      <div class="exclude-note">
+        <strong>Considered, not shortlisted:</strong> other diversified Indian ER&amp;D conglomerates were reviewed for this pass; the shortlist favors firms with a genuine, explicit SDV services practice over generalists with automotive as one of many verticals.
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Capability comparison</h2>
+      <div class="table-wrap">
+        <table class="compare" id="compare-table"></table>
+      </div>
+    </section>
+
+    <section class="block validation">
+      <h2>🤝 Human validation</h2>
+      <p class="lede">This stage cannot hand off to PR &amp; Media Research until a person has reviewed and approved the list. Use the controls on each card above to keep or remove a competitor, or use the actions below.</p>
+
+      <div class="actionbar">
+        <button class="btn" id="add-btn">+ Add a competitor</button>
+        <button class="btn" id="feedback-btn">Explain / reconsider</button>
+      </div>
+
+      <div class="inline-form" id="add-form">
+        <input type="text" id="add-name" placeholder="Competitor name">
+        <textarea id="add-note" placeholder="Why should they be considered? (capability overlap, evidence, etc.)"></textarea>
+        <div class="row">
+          <button class="btn ghost small" data-close="add-form">Cancel</button>
+          <button class="btn primary small" id="add-submit">Add to list</button>
+        </div>
+      </div>
+
+      <div class="inline-form" id="feedback-form">
+        <textarea id="feedback-note" placeholder="Tell The Fourth Mind what to reconsider — e.g. why a competitor is or isn't relevant."></textarea>
+        <div class="row">
+          <button class="btn ghost small" data-close="feedback-form">Cancel</button>
+          <button class="btn primary small" id="feedback-submit">Submit feedback</button>
+        </div>
+      </div>
+
+      <div class="vgrid" style="margin-top:20px;">
+        <div class="col">
+          <h4>Approval status</h4>
+          <div id="approval-summary" style="font-size:0.85rem;color:var(--text-muted);"></div>
+        </div>
+        <div class="col">
+          <h4>Activity log</h4>
+          <div class="log" id="log"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="state" id="conn-state">Connecting…</footer>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
